@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import axios from 'axios';
+import ProductCard from './ProductCard';
 
 const myImages = ['/images/boy1.png', '/images/boy2.png', '/images/boy3.png', '/images/boy4.png', '/images/boy5.png', '/images/boy6.png']
 
@@ -33,6 +35,16 @@ const CollectionHome = () => {
       setShow2(show2-1)
     }
   }
+
+  const makeRequest = async() => {
+
+    const res = await axios.request({
+      method: 'GET',
+      url: 'https://fakestoreapi.com/products'
+    })
+    console.log(res.data)
+    
+  }
   
   return (
     <div className='py-2 grid grid-cols-3'>
@@ -53,6 +65,7 @@ const CollectionHome = () => {
       <div>
         <img src={myImages[show2]} alt="" />
       </div>
+      
     </div>
   )
 }
