@@ -1,9 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { BiArrowBack } from 'react-icons/bi'
 import { Context } from '../utils/CartContext'
 import CartCard from './CartCard'
 
 const Cart = ({open, setOpen}) => {
+  const [total, setTotal] = useState(0)
   const {cart} = useContext(Context)
   
   const rodiat = e => {
@@ -27,8 +28,13 @@ const Cart = ({open, setOpen}) => {
               title={item?.title}
               image={item?.image}
               price={item?.price}
+              setTotalPrice={setTotal}
             />
           ))}
+        </div>
+        <div className='flex justify-between'>
+          <p className="font-bold">Total</p>
+          <p className="font-bold">N{total}</p>          
         </div>
       </div>
     </div>

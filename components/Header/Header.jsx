@@ -12,7 +12,7 @@ const Header = () => {
   const [cartOpen, setCartOpen] = useState(false)
   
   return (
-    <div className='py-3 flex justify-between w-full overflow-hidden px-20'>
+    <div className='py-3 flex sticky top-0 justify-between w-full overflow-hidden px-20'>
       <div className='flex my-auto gap-3'>
         <div className='my-auto cursor-pointer'><BiMenuAltLeft size={20} /></div>
         <ul className='flex gap-5'>
