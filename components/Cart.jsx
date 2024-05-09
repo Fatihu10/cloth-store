@@ -12,6 +12,12 @@ const Cart = ({open, setOpen}) => {
       setOpen(false)
     }
   }
+
+  // const num = [1,2,3,3,4,4,5,5]
+
+  // for(let i=0; i<=num.length; i++){
+
+  // }
   
   return (
     <div onClick={rodiat} className={`fixed w-full flex justify-end h-screen duration-500 bg-black bg-opacity-60 top-0 ${open ? 'right-0' : 'right-[-100%]'}`}>

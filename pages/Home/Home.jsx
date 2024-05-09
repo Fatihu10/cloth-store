@@ -6,15 +6,22 @@ import axios from 'axios'
 
 const Home = () => {
   const [myProduct, setMyProduct] = useState([])
+  const [menCategory, setMenCategory] = useState([])
 
-  const callApi = async() => {
+  async function callApi(){
 
-    const res = await axios.request({
-      method: 'GET',
-      url: 'https://fakestoreapi.com/products'
-    })
-    setMyProduct(res.data)
-
+    const res = await fetch('https://fakestoreapi.com/products')
+    const response = await res.json()
+    setMyProduct(response)
+    
+    let dummyCloth = []
+    for(let i=0; i<=response?.length; i++){
+      if(response[i]?.category == "men's clothing"){
+        dummyCloth.push(response[i])
+      }
+    }
+    console.log(dummyCloth)
+    setMenCategory(dummyCloth)
   }
 
   useEffect(()=>{
@@ -40,6 +47,18 @@ const Home = () => {
             item={item}
           />
         ))}
+      </div>
+
+      <div className='pt-20'>
+        <p className="text-4xl font-bold">Men Clothing Category</p>
+        <div className='flex gap-5 flex-wrap py-10'>
+          {menCategory.map((itm, i) => (
+            <ProductCard
+              key={i}
+              item={itm}
+            />
+          ))}
+        </div>
       </div>
     </div>
   )
