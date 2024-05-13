@@ -3,6 +3,7 @@ import { BiSearch } from 'react-icons/bi'
 import CollectionHome from '../../components/CollectionHome'
 import ProductCard from '../../components/ProductCard'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   const [myProduct, setMyProduct] = useState([])
@@ -42,10 +43,14 @@ const Home = () => {
       <CollectionHome />
       <div className="py-10 w-full flex-wrap flex gap-3">
         {myProduct.map((item, i)=>(
-          <ProductCard
+          <Link
             key={i}
-            item={item}
-          />
+            to={'/product/'+item?.id}
+          >
+            <ProductCard
+              item={item}
+            />
+          </Link>
         ))}
       </div>
 
