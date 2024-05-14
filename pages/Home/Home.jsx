@@ -21,7 +21,6 @@ const Home = () => {
         dummyCloth.push(response[i])
       }
     }
-    console.log(dummyCloth)
     setMenCategory(dummyCloth)
   }
 
